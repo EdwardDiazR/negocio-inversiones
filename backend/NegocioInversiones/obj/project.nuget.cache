@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yb9tOn43X61LMipzqf8deS5aUNaAciMdqfvt/gUpDcJGFDfnVtG+5bfg6yWB3XNZbpqZPEqX3LG8kYIf9JS50Q==",
+  "dgSpecHash": "nYnq4WXheXp/ok306oiGsJV6JL8CZsVdKTIE+I+xZVNDXozCzdLvCTKpfE2ODDyo2YZEnQ1aFeoxrD6rKO5jzg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\eadia\\source\\repos\\NegocioInversiones\\NegocioInversiones\\NegocioInversiones.csproj",
+  "projectFilePath": "C:\\Users\\eadia\\OneDrive\\Escritorio\\Programacion\\NegocioInversiones\\negocio-inversiones\\backend\\NegocioInversiones\\NegocioInversiones.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\eadia\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\eadia\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
