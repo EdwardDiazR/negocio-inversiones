@@ -1,0 +1,28 @@
+<section style="display: flex; flex-direction: column; padding: 10px">
+  <h2 style="margin: 0">Solicitudes</h2>
+  <divider></divider>
+
+  <ul class="profile-options__list">
+    <li routerLink="resumen">Solicitudes</li>
+    <li routerLink="crear">Crear solicitud</li>
+  </ul>
+
+  <router-outlet
+    style="display: flex; width: 100%; flex-grow: 1"
+  ></router-outlet>
+  <!-- <ul>
+    @for(request of customerLoanRequests ;track request.id){
+    <li class="loan-request-item">
+      <div class="header">
+        <strong>
+          <span># Solicitud: {{ request.id }} </span></strong
+        >
+      </div>
+      <div class="content">
+        <span>Monto: {{ request.requestedLoanAmount | currency : "RD$" }}</span>
+      </div>
+    </li>
+    }
+  </ul> -->
+  <!-- <app-create-loan-request-form></app-create-loan-request-form> -->
+</section>

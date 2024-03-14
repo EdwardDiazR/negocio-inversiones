@@ -1,0 +1,29 @@
+section {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+table {
+  box-sizing: border-box;
+  margin: 5px;
+  width: 100%;
+
+  tr {
+    max-height: 50px;
+    overflow: hidden;
+    td {
+    }
+
+    .desc-td {
+      max-width: 300px;
+    }
+  }
+}

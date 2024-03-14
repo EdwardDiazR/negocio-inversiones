@@ -1,0 +1,46 @@
+<section class="search-container">
+  <div class="search-box">
+    <div class="header">
+      <span>Buscar cliente</span>
+    </div>
+    <!-- <video width="500px" height="400px"
+    autoplay>
+      <source type="video/mp4" src="https://www.youtube.com/watch?v=ciJt2jXWRKo" />
+    </video> -->
+
+    <form [formGroup]="customerInfo" (submit)="searchCustomerById()">
+      <div class="form-control">
+        <label for="">Tipo de documento</label>
+        <select formControlName="CustomerIdType">
+          <option [defaultSelected]="true" disabled>
+            SELECCIONE TIPO DE DOCUMENTO
+          </option>
+          <option value="1">CEDULA</option>
+          <option value="2">PASAPORTE</option>
+          <option value="3">RNC</option>
+        </select>
+      </div>
+
+      <div class="form-control">
+        <label for="">No. Documento</label>
+
+        <input
+          type="text"
+          placeholder="ID del cliente"
+          formControlName="CustomerId"
+        />
+      </div>
+
+      <button type="submit">Buscar</button>
+    </form>
+    <div class="search-result">
+      @if(isSubmitted && CustomerProfile){
+      <a [routerLink]="['/customer', this.CustomerProfile.id, 'profile']">{{ CustomerProfile.firstName }}</a>
+
+      }@else if(isSubmitted && !CustomerProfile && ApiResponseMessage ){
+      <span>{{ ApiResponseMessage }}</span>
+
+      }
+    </div>
+  </div>
+</section>

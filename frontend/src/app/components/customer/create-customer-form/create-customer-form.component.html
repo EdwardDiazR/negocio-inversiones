@@ -1,0 +1,163 @@
+<form
+  action=""
+  class="form_container"
+  [formGroup]="createCustomerForm"
+  (submit)="createProfile()"
+>
+  <section class="personal-info__container">
+    <div class="personal-info__form">
+      <h3>Datos personales</h3>
+
+      <div class="form-control">
+        <label for="">Tipo de documento</label>
+        <select name="" id="" formControlName="customerDocumentType">
+          <option disabled [defaultSelected]="true">SELECCIONE TIPO DE DOCUMENTO</option>
+          <option value="1">CEDULA</option>
+          <option value="2">PASAPORTE</option>
+        </select>
+      </div>
+
+      <div class="form-control">
+        <label for="">Numero documento de identidad</label>
+        <input
+          type="text"
+          placeholder="Numero doc. de identidad"
+          formControlName="customerCivilId"
+        />
+      </div>
+
+      <div class="form-control">
+        <label for="">Primer Nombre:</label>
+        <input
+          type="text"
+          placeholder="Primer Nombre"
+          formControlName="customerFirstName"
+        />
+      </div>
+
+      <div class="form-control">
+        <label for="">Segundo Nombre:</label>
+        <input
+          type="text"
+          placeholder="Segundo Nombre"
+          formControlName="customerMiddleName"
+        />
+      </div>
+
+      <div class="form-control">
+        <label for="">Primer Apellido:</label>
+        <input
+          type="text"
+          placeholder="Primer Apellido"
+          formControlName="customerLastName"
+        />
+      </div>
+
+      <div class="form-control">
+        <label for="">Segundo Apellido:</label>
+        <input
+          type="text"
+          placeholder="Segundo Apellido"
+          formControlName="customerSecondLastName"
+        />
+      </div>
+
+      <div class="form-control">
+        <label for="">Genero:</label>
+        <select name="" id="" formControlName="customerGender">
+          <option disabled [defaultSelected]="true">SELECCIONE GENERO</option>
+          <option value="M">MASCULINO</option>
+          <option value="F">FEMENINO</option>
+        </select>
+      </div>
+
+      <div class="form-control">
+        <label for="">Fecha de nacimiento</label>
+        <input type="date" formControlName="customerDob" required />
+      </div>
+    </div>
+
+    <div class="contact-info__form">
+      <h3>Informacion de contacto</h3>
+
+      <div class="form-control">
+        <label for="">Numero de celular</label
+        ><input
+          type="text"
+          placeholder="Numero de celular"
+          formControlName="customerPhoneNumber"
+        />
+      </div>
+      <div class="form-control">
+        <label for="">Numero de telefono residencial</label>
+        <input
+          type="text"
+          placeholder="Numero de telefono residencial"
+          formControlName="customerResidentialPhoneNumber"
+        />
+      </div>
+
+      <div class="form-control">
+        <label for="">Correo electronico (E-Mail)</label>
+        <input
+          type="text"
+          placeholder="Correo Electronico"
+          formControlName="customerEmail"
+        />
+      </div>
+    </div>
+
+    <div class="adress-info__form">
+      <h3>Informacion de residencia</h3>
+      <div class="form-control">
+        <label for="">Direccion</label>
+        <input placeholder="Direccion" formControlName="customerAddress" />
+      </div>
+
+      <div class="form-control">
+        <label for="">Provincia</label>
+        <input
+          type="text"
+          placeholder="Sector"
+          formControlName="customerCity"
+        />
+      </div>
+
+      <div class="form-control">
+        <label for="">Pais</label>
+        <input
+          placeholder="Pais de residencia"
+          formControlName="customerCountry"
+        />
+      </div>
+    </div>
+  </section>
+
+  <divider></divider>
+  <section class="income_section">
+    <h3>Informacion laboral & de ingresos</h3>
+    <div class="income-info__container">
+      <div class="form-control">
+        <label for="">Empresa donde labora</label>
+        <input
+          type="text"
+          placeholder="Empresa donde labora"
+          formControlName="customerWorkPlace"
+        />
+      </div>
+
+      <div class="form-control">
+        <label for="">Ingresos mensuales</label>
+        <input
+          type="number"
+          placeholder="Ingresos mensuales"
+          formControlName="monthlyIncome"
+        />
+      </div>
+    </div>
+  </section>
+
+  <button class="create-profile__button" type="submit" value="Enviar formulario">
+    Crear perfil del cliente
+  </button>
+</form>

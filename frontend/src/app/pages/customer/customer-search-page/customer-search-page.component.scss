@@ -1,0 +1,82 @@
+:host {
+  --BlueButton: #0b60b0;
+  --OrangeBg: #ff5b00;
+}
+
+* {
+  font-size: 1.2rem;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  box-sizing: border-box;
+
+  .search-box {
+    background-color: lightgray;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    min-height: 300px;
+    height: 40%;
+    margin: 5%;
+
+    .header {
+      background-color: var(--OrangeBg);
+      color: white;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    form {
+      padding: 10px 20px;
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      background-color: lightgray;
+      gap: 10px;
+      justify-content: center;
+      .form-control {
+        display: flex;
+        flex-direction: column;
+        height: 40%;
+
+        input,
+        select {
+          flex-grow: 1;
+          height: 30px;
+        }
+      }
+    }
+    button {
+      border: 1px solid transparent;
+      border-radius: 5px;
+      background-color: #ff5b00;
+      color: white;
+      width: 40%;
+      height: 35px;
+      align-self: center;
+      cursor: pointer;
+      transition: 0.1s ease-in-out;
+    }
+    button:hover {
+      border-color: var(--OrangeBg);
+      color: #0b60b0;
+      background-color: white;
+    }
+  }
+}
+.search-result{
+background-color: white;
+display: flex;
+align-items: center;
+margin: 5px;
+border-radius: 5px;
+padding: 5px;
+}

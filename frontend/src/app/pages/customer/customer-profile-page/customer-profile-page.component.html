@@ -1,0 +1,24 @@
+@if(isLoadingProfile){
+  <app-loading-spinner></app-loading-spinner>
+}
+
+@if(customerProfile && isLoadingProfile==false){
+
+<div class="customer-profile__container">
+  <ul class="options-list">
+    <li routerLink="profile">Perfil</li>
+    <li>Productos</li>
+    <li routerLink="documents">Documentos</li>
+    <li routerLink="solicitudes">Solicitudes</li>
+    <li routerLink="reclamations">Reclamaciones</li>
+  </ul>
+
+
+
+  <div class="page-container">
+    <router-outlet style="flex-grow: 1;"></router-outlet>
+  </div>
+</div>
+}@else if(isLoadingProfile==false && !customerProfile){
+<span>No se pudo cargar la informacion del cliente</span>
+}

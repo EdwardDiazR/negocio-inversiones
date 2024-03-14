@@ -1,0 +1,75 @@
+<h1>Nueva solicitud de prestamo</h1>
+
+@if(customer){
+<form action="" [formGroup]="CreateLoanRequestForm">
+  <div class="customer-info">
+    <h3>Informacion del cliente</h3>
+    <div class="form-control">
+      <label for="">ID del cliente</label>
+      <input
+        type="text"
+        placeholder="Doc. Identidad del cliente"
+        readonly
+        value="{{ customer.civilId }}"
+      />
+    </div>
+    <div class="form-control">
+      <label for="">Tipo Documento</label>
+      <input
+        type="text"
+        value="{{ customer.customerCivilIdType == 1 ? 'CEDULA' : 'PASAPORTE' }}"
+        readonly
+      />
+    </div>
+
+    <div class="form-control">
+      <label for="">Ingresos mensuales</label>
+      <input readonly value="{{ customer.monthlyIncome | currency }}" />
+
+      @if(!customer.incomeVerified){
+      <span style="color: red; font-size: 0.9rem; font-weight: bold"
+        >*El aval de ingresos aun no ha sido verificado</span
+      >
+
+      }
+    </div>
+  </div>
+
+  <div class="loan-request">
+    <h3>Informacion del prestamo</h3>
+    <div class="form-control">
+      <label for="">Monto del prestamo</label>
+      <input
+        type="number"
+        formControlName="LoanAmount"
+        placeholder="Monto del prestamo"
+      />
+    </div>
+    <div class="form-control">
+      <label for="">Plazo en meses</label>
+      <input
+        type="number"
+        formControlName="LoanTimeInMonths"
+        placeholder="Plazo del prestamo"
+      />
+    </div>
+    <div class="form-control">
+      <label for="">Tipo de prestamo</label>
+      <select  formControlName="LoanType"><option value="1">CONSUMO</option></select>
+      <!-- <input
+        type="number"
+       
+        value="1"
+        placeholder="Tipo del prestamo"
+      /> -->
+    </div>
+  </div>
+</form>
+<button class="create-request-btn" (click)="createLoanRequest()">
+  Crear solicitud
+</button>
+
+}@else{
+<span>No se pudo cargar la informacion del cliente</span>
+
+}

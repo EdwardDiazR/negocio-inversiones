@@ -1,0 +1,76 @@
+:host {
+  --BlueButton: #0b60b0;
+  --OrangeBg: #ff5b00;
+}
+
+.form_container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  gap: 5px;
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.696);
+}
+
+.personal-info__container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 3px 10px;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  box-sizing: border-box;
+  width: 100%;
+
+  input,
+  select {
+    height: 30px;
+    box-sizing: border-box;
+    padding: 5px;
+    border: 1px solid;
+    border-width: 1.5px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 0.9rem;
+  }
+}
+
+.income-info__container {
+  .form-control {
+    width: fit-content;
+  }
+
+  button {
+    border: none;
+    color: white;
+    height: 20px;
+    border-radius: 1px;
+    background-color: var(--BlueButton);
+  }
+}
+
+.create-profile__button {
+  display: flex;
+  align-items: center;
+  background-color: var(--OrangeBg);
+  border: 1px solid transparent;
+  height: 30px;
+  border-radius: 5px;
+  color: white;
+  align-self: center;
+  cursor: pointer;
+  margin: 5px;
+  transition: 0.1s ease-in-out;
+}
+
+.create-profile__button:hover {
+  background-color: white;
+  border-color: #ff5b00;
+  color: var(--OrangeBg);
+}

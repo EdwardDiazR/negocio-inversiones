@@ -1,0 +1,99 @@
+<section class="container">
+  @if(customer){
+
+  <h2>{{ customerFullName }}</h2>
+  <divider></divider>
+  @switch (userRole) { @case ('REPRESENTANTE') {
+  <ul class="profile-options__list">
+    <li>Editar perfil</li>
+    <li>Actualizar informacion laboral</li>
+  </ul>
+  } }
+  <section class="information-container">
+    <div class="personal-information-section">
+      <h3>Informacion personal</h3>
+      <div class="form-control">
+        <label for="">Status del perfil</label>
+        <input
+          type="text"
+          value="{{
+            customer.customerProfileStatus == 1
+              ? 'ACTIVO'
+              : customer.customerProfileStatus         }}"
+          readonly
+        />
+      </div>
+      <div class="form-control">
+        <label for="">ID cliente</label>
+        <input type="text" value="{{ customer.id }}" readonly />
+      </div>
+      <div class="form-control">
+        <label for="">Nombres:</label>
+        <input type="text" value="{{ customerFullName }}" readonly />
+      </div>
+      <div class="form-control">
+        <label>Doc. Identidad</label>
+        <input value="{{ customer.civilId }}" readonly />
+      </div>
+
+      <div class="form-control">
+        <label for="">Fecha de nacimiento</label>
+        <input
+          type="text"
+          value="{{ customerDobFormatted | date : 'dd/MM/yyyy' }}"
+        />
+      </div>
+      <div class="form-control">
+        <label for="">Genero</label>
+        <input
+          type=""
+          value="{{ customer.gender == 'M' ? 'MASCULINO' : 'FEMENINO' }}"
+          readonly
+        />
+      </div>
+    </div>
+
+    <div class="contact-info">
+      <h3>Informacion de contacto</h3>
+      <div class="form-control">
+        <label for="">Celular:</label>
+        <input type="text" value="{{ customer.phoneNumber }}" readonly />
+      </div>
+      <div class="form-control">
+        <label for="">Telefono residencial:</label>
+        <input
+          type="text"
+          value="{{ customer.residentialPhoneNumber }}"
+          readonly
+        />
+      </div>
+      <div class="form-control">
+        <label for="">Correo electronico:</label>
+        <input type="text" value="{{ customer.email }}" readonly />
+      </div>
+    </div>
+
+    <div class="address-section">
+      <h3>Direccion</h3>
+      <div class="form-control">
+        <label for="">Direccion</label>
+        <input value="{{ customer.address }}" readonly />
+      </div>
+
+      <div class="form-control">
+        <label for="">Provincia</label
+        ><input value="{{ customer.city }}" readonly />
+      </div>
+    </div>
+
+    <div class="work-information">
+      <h3>Informacion laboral</h3>
+      <div class="form-control">
+        <label for="">Lugar de trabajo</label>
+        <input type="text" value="{{ customer.workPlace }}" readonly />
+      </div>
+    </div>
+  </section>
+
+  }
+</section>

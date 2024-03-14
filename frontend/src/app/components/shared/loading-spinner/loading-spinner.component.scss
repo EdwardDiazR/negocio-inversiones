@@ -1,0 +1,50 @@
+section {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  flex-direction: column;
+  gap: 5px;
+
+  span {
+    color: orange;
+    font-weight: 600;
+    transition: 1s ease-in-out;
+    animation: intermitente 1.5s linear infinite;
+  }
+}
+.spinner-container {
+  border: 6px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 6px solid orange;
+  width: 40px;
+  height: 40px;
+  -webkit-animation: spin 1.5s linear infinite; /* Safari */
+  animation: spin 1s linear infinite;
+}
+@keyframes intermitente {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

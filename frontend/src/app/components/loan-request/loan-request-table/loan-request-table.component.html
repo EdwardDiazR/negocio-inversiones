@@ -1,0 +1,58 @@
+<section style="display: flex; flex-direction: column; width: 100%">
+  <strong
+    >Solicitudes de
+    <span
+      style="
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        font-weight: bold;
+      "
+      >prestamo</span
+    ></strong
+  >
+  @if(customerLoanRequests && customerLoanRequests.length){
+  <table class="loan-request__table">
+    <thead>
+      <th># Solicitud</th>
+      <th>Tipo prestamo</th>
+      <th>Monto</th>
+      <th>Plazo</th>
+      <th>Fecha</th>
+      <th>Status</th>
+      <th>Fecha de cierre</th>
+    </thead>
+    <tbody>
+      @for(request of customerLoanRequests ;track request.id){
+      <tr>
+        <td>
+          <a href="/">{{ request.generalRequestId }}</a>
+        </td>
+        <td>{{ request.loanTypeMessage }}</td>
+        <td style="font-weight: bold">
+          {{ request.requestedLoanAmount | currency }}
+        </td>
+        <td>{{ request.requestedLoanTime }} meses</td>
+        <td>{{ request.requestDate | date : "dd/MM/yyyy" }}</td>
+        <td
+          [ngClass]="{
+            open: request.requestStatus == 1,
+            favorable: request.requestStatus == 2,
+            desfavorable: request.requestStatus == 3
+          }"
+        >
+          {{ request.statusMessage }}
+        </td>
+        <td>
+          @if(request.isClosed){ <span>{{ request.requestClosingDate | date:'dd/MM/yyyy'}}</span
+          >}@else {<span>Aun no ha sido cerrada</span>}
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  }@else {
+  <span style="align-self: center"
+    >Cliente no tiene solicitudes de prestamo</span
+  >
+  }
+</section>

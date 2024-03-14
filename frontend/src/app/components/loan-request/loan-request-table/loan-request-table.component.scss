@@ -1,0 +1,36 @@
+.loan-request__table {
+  border-collapse: collapse;
+  width: 100%;
+  box-sizing: border-box;
+
+  thead {
+    background-color: rgb(226, 226, 226);
+  }
+  td,
+  th,
+  tr {
+    box-sizing: border-box;
+    border-collapse: collapse;
+    border: 1px solid;
+    padding: 4px 8px;
+    border-color: black;
+  
+  }
+
+  .open {
+    background-color: yellow;
+    font-weight: bold;
+  }
+
+  .favorable {
+    background-color: green;
+    color: white;
+    font-weight: bold;
+  }
+
+  .desfavorable {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+  }
+}
