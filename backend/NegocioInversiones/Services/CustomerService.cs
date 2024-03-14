@@ -37,6 +37,8 @@ namespace NegocioInversiones.Services
         //Method: Get Customer by CustomerId
         public Customer GetCustomerByCustomerId(int CustomerId)
         {
+            var r = _context.Database.SqlQuery<Customer>($"SELECT * FROM dbo.personal_customer");
+
             Customer? customer = _context.Customer.AsNoTracking()
                 .FirstOrDefault(customer => customer.Id == CustomerId);
 
