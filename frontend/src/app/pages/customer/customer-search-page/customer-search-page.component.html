@@ -35,7 +35,7 @@
     </form>
     <div class="search-result">
       @if(isSubmitted && CustomerProfile){
-      <a [routerLink]="['/customer', this.CustomerProfile.id, 'profile']">{{ CustomerProfile.firstName }}{{CustomerProfile.lastName}}</a>
+      <a [routerLink]="['/customer', this.CustomerProfile.id, 'profile']">{{ CustomerProfile.firstName + ' ' + CustomerProfile.lastName }}</a>
 
       }@else if(isSubmitted && !CustomerProfile && ApiResponseMessage ){
       <span>{{ ApiResponseMessage }}</span>
