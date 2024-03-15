@@ -35,7 +35,6 @@ namespace NegocioInversiones.Services
                 _db.Database.ExecuteSqlRaw("SET IDENTITY_INSERT dbo.Loan ON");
 
                 //TODO: Create a 'Product Catalog in db' then, check if product type ID exists in that database
-                //TODO: Create a 'Product Catalog in db' then, check if product type ID exists in that database
                 //It helps to not add a product typa that doesn't exists in our database
                
 
