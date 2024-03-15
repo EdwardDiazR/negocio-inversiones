@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NegocioInversiones.Interfaces;
+using NegocioInversiones.Models.LoanModel;
+using NegocioInversiones.Models.LoanModel.Dto;
 
 namespace NegocioInversiones.Controllers
 {
@@ -7,6 +10,23 @@ namespace NegocioInversiones.Controllers
     [ApiController]
     public class LoanController : ControllerBase
     {
+        private ILoanService _loanService;
+        public LoanController(ILoanService loanService)
+        { _loanService = loanService; }
+
+        public ActionResult CreateLoan(CreateLoanDto createLoanDto)
+        {
+            try
+            {
+                Loan loan = _loanService.CreateLoan(createLoanDto);
+                return Ok(loan);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+
+        }
         //public ActionResult GetLoanDetails(int loanId)
         //{
         //    return Ok();
@@ -24,6 +44,6 @@ namespace NegocioInversiones.Controllers
 
         //public ActionResult DesembolsarPrestmao() { }
 
-        
+
     }
 }

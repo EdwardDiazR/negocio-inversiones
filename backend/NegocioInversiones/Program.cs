@@ -18,6 +18,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<ICustomerService,CustomerService>();
 builder.Services.AddScoped<ILoanRequestService,LoanRequestService>();
+builder.Services.AddScoped<ILoanService, LoanService>();
 
 
 builder.Services.AddCors();

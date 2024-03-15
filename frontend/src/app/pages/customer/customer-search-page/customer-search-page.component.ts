@@ -11,11 +11,12 @@ import { Customer } from '../../../Models/customer';
 import { Router, RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Title } from '@angular/platform-browser';
+import { LoadingSpinnerComponent } from '../../../components/shared/loading-spinner/loading-spinner.component';
 
 @Component({
   selector: 'app-customer-search-page',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, LoadingSpinnerComponent],
   templateUrl: './customer-search-page.component.html',
   styleUrl: './customer-search-page.component.scss',
 })
@@ -38,13 +39,12 @@ export class CustomerSearchPageComponent {
   ApiResponseMessage!: string;
 
   isSubmitted: boolean = false;
-  loadingCustomerInfo:boolean=false;
+  loadingCustomerInfo: boolean = false;
 
   searchCustomerById(): void {
     this.isSubmitted = false;
     this.CustomerProfile = null;
-    this.loadingCustomerInfo=true;
-
+    this.loadingCustomerInfo = true;
 
     if (this.customerInfo.valid)
       this._customerService
@@ -61,7 +61,6 @@ export class CustomerSearchPageComponent {
             );
             console.log(this.CustomerProfile.civilId);
 
-
             // this._router.navigate([
             //   '/customer',this.CustomerProfile.civilId,'profile'
             // ]);
@@ -69,6 +68,6 @@ export class CustomerSearchPageComponent {
           error: (e) => (this.ApiResponseMessage = e.error),
         });
     this.isSubmitted = true;
-    this.loadingCustomerInfo=false
+    this.loadingCustomerInfo = false;
   }
 }

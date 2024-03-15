@@ -27,7 +27,7 @@ namespace NegocioInversiones.Services
             {
                 _db.ChangeTracker.Clear();
                 _db.Database.BeginTransaction();
-                //_db.Database.ExecuteSqlRaw("SET IDENTITY_INSERT dbo.LoanRequest ON");
+                _db.Database.ExecuteSqlRaw("SET IDENTITY_INSERT dbo.LoanRequest ON");
 
 
                 Request request = new Request()
@@ -74,7 +74,7 @@ namespace NegocioInversiones.Services
             }
             finally
             {
-                //_db.Database.ExecuteSqlRaw("SET IDENTITY_INSERT dbo.LoanRequest OFF");
+                _db.Database.ExecuteSqlRaw("SET IDENTITY_INSERT dbo.LoanRequest OFF");
 
             }
 

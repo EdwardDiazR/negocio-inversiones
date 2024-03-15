@@ -35,11 +35,23 @@
     </form>
     <div class="search-result">
       @if(isSubmitted && CustomerProfile){
-      <a [routerLink]="['/customer', this.CustomerProfile.id, 'profile']">{{ CustomerProfile.firstName + ' ' + CustomerProfile.lastName }}</a>
+      <a [routerLink]="['/customer', this.CustomerProfile.id, 'profile']">{{
+        CustomerProfile.firstName + " " + CustomerProfile.lastName
+      }}</a>
 
-      }@else if(!isSubmitted && !CustomerProfile){
-        <span style="font-size: 0.9rem; color: black; font-weight: bold;font-style: oblique;">Consulta el perfil del cliente con su ID</span>
-      }@else if(isSubmitted && !CustomerProfile && ApiResponseMessage ){
+      }@else if(!isSubmitted && !CustomerProfile && !loadingCustomerInfo){
+      <span
+        style="
+          font-size: 0.9rem;
+          color: black;
+          font-weight: bold;
+          font-style: oblique;
+        "
+        >Consulta el perfil del cliente con su ID</span
+      >
+      }@else if(isSubmitted && loadingCustomerInfo){
+      <!-- <app-loading-spinner></app-loading-spinner> -->
+      } @else if(isSubmitted && !CustomerProfile && ApiResponseMessage ){
       <span>{{ ApiResponseMessage }}</span>
 
       }

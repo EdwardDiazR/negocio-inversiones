@@ -16,6 +16,14 @@ namespace NegocioInversiones.Services
             _context = context;
         }
 
+        public bool CheckIfCustomerExists(int CustomerId)
+        {
+            return _context.Customer.AsNoTracking()
+                .Any(c => c.Id == CustomerId 
+                );
+        }
+
+
         //Method: search customer by it's civil ID
         public Customer GetCustomerByCivilId(string CustomerId, int? CustomerIdType)
         {
