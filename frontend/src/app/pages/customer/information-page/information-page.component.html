@@ -19,7 +19,8 @@
           value="{{
             customer.customerProfileStatus == 1
               ? 'ACTIVO'
-              : customer.customerProfileStatus         }}"
+              : customer.customerProfileStatus
+          }}"
           readonly
         />
       </div>
@@ -38,10 +39,7 @@
 
       <div class="form-control">
         <label for="">Fecha de nacimiento</label>
-        <input
-          type="text"
-          value="{{ customerDobFormatted | date : 'dd/MM/yyyy' }}"
-        />
+        <input type="text" value="{{ customerDobFormatted }}" />
       </div>
       <div class="form-control">
         <label for="">Genero</label>
