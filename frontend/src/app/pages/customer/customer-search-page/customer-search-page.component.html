@@ -31,12 +31,14 @@
         />
       </div>
 
-      <button type="submit">Buscar</button>
+      <button type="submit" [disabled]="loadingCustomerInfo">Buscar</button>
     </form>
     <div class="search-result">
       @if(isSubmitted && CustomerProfile){
       <a [routerLink]="['/customer', this.CustomerProfile.id, 'profile']">{{ CustomerProfile.firstName + ' ' + CustomerProfile.lastName }}</a>
 
+      }@else if(!isSubmitted && !CustomerProfile){
+        <span style="font-size: 0.9rem; color: black; font-weight: bold;font-style: oblique;">Consulta el perfil del cliente con su ID</span>
       }@else if(isSubmitted && !CustomerProfile && ApiResponseMessage ){
       <span>{{ ApiResponseMessage }}</span>
 
