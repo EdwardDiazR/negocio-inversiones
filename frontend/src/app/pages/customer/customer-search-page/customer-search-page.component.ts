@@ -38,10 +38,12 @@ export class CustomerSearchPageComponent {
   ApiResponseMessage!: string;
 
   isSubmitted: boolean = false;
+  loadingCustomerInfo:boolean=false;
 
   searchCustomerById(): void {
     this.isSubmitted = false;
     this.CustomerProfile = null;
+    this.loadingCustomerInfo=true;
 
 
     if (this.customerInfo.valid)
@@ -67,5 +69,6 @@ export class CustomerSearchPageComponent {
           error: (e) => (this.ApiResponseMessage = e.error),
         });
     this.isSubmitted = true;
+    this.loadingCustomerInfo=false
   }
 }
