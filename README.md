@@ -1,7 +1,7 @@
 Aplicacion web de gestion de prestamos y de clientes
 
 Tecnologias: 
-Frontend: Angular
+Frontend: Angular | SCSS
 Backend: C# , ASP.NET
 DB: SQL SERVER
 ![INVER3](https://github.com/EdwardDiazR/negocio-inversiones/assets/67916276/d16a424b-11ae-4ea9-aafc-f986f6a0f0b7)
