@@ -36,7 +36,7 @@ namespace NegocioInversiones.Services
 
                 //TODO: Create a 'Product Catalog in db' then, check if product type ID exists in that database
                 //It helps to not add a product typa that doesn't exists in our database
-               
+
 
                 CustomerProduct product = new CustomerProduct()
                 {
@@ -57,9 +57,9 @@ namespace NegocioInversiones.Services
                     CapitalBalance = loanDto.Amount,
                     CoSignerId = loanDto.CoSignerId,
                     Interest = loanDto.Interest,
-                    InterestBalance = 0,                    
+                    InterestBalance = 0,
                     GuaranteeTypeId = loanDto.GuaranteeTypeId,
-                    MontoMora= 0,
+                    MontoMora = 0,
                     MontoCuota = 0,
                     LoanStatusId = 1,
                     PlazoEnMeses = loanDto.PlazoEnMeses,
