@@ -10,6 +10,7 @@ namespace NegocioInversiones.Models.LoanModel
         public int LoanStatusId { get; set; }
         public int LoanTypeId { get; set; }
         public int BeneficiaryCustomerId { get; init; }
+
         public int ? CoSignerId { get; set; }
         public double Amount { get; set; }
         public double CapitalBalance { get; set; }

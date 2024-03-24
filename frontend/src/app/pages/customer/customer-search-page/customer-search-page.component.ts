@@ -42,6 +42,9 @@ export class CustomerSearchPageComponent {
   loadingCustomerInfo: boolean = false;
 
   searchCustomerById(): void {
+
+    // this._router.navigate(['/customer', this.CustomerProfile?.id, 'profile'],{state:{item:this.CustomerProfile}})
+
     this.isSubmitted = false;
     this.CustomerProfile = null;
     this.loadingCustomerInfo = true;
@@ -61,9 +64,9 @@ export class CustomerSearchPageComponent {
             );
             console.log(this.CustomerProfile.civilId);
 
-            // this._router.navigate([
-            //   '/customer',this.CustomerProfile.civilId,'profile'
-            // ]);
+              this._router.navigate([
+                '/customer',this.CustomerProfile.civilId,'profile'
+              ]);
           },
           error: (e) => (this.ApiResponseMessage = e.error),
         });

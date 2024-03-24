@@ -2,24 +2,22 @@
   <h2>Negocio Inversiones</h2>
 
   <ul class="links__list">
-    <li routerLink="/customer/search">Consultar cliente</li>
-    @switch (userRole) {
-       @case ('REPRESENTANTE DE SERVICIOS' ||
-        'OFICIAL DE PLATAFORMA' || 
-        'SUGBERENTE DE PLATAFORMA') {
-          <li routerLink="/customer/crear-perfil">Crear nuevo perfil</li>
+    <li routerLink="/customer/search" routerLinkActive="active">Consultar cliente</li>
+    @switch (userRole) { 
+      @case (
+      'REPRESENTANTE DE SERVICIOS' 
+      ||'OFICIAL DE PLATAFORMA' 
+      || 'SUGBERENTE DE PLATAFORMA') {
+    <li routerLink="/customer/crear-perfil" routerLinkActive="active">Crear nuevo perfil</li>
     }}
-    
-<li>Prestamos</li>
-
+    <li routerLink="/loan" routerLinkActive="active">Prestamos</li>
   </ul>
 
   <section class="user-info">
     <div class="info">
       <span>UserName</span>
       <button (click)="showUserOptions = !showUserOptions">
-        @switch (showUserOptions) { 
-          @case (false) {
+        @switch (showUserOptions) { @case (false) {
         <svg
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"

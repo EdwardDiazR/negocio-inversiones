@@ -32,20 +32,22 @@ namespace NegocioInversiones.Controllers
         }
 
         [HttpGet("customer-profile")]
-        public ActionResult GetCustomerById(string CustomerId, int? CustomerIdType )
+        public ActionResult GetCustomerById(string CustomerId, int? CustomerIdType)
         {
+            Customer customer;
             try
             {
-                Customer customer;
-                if (CustomerIdType is not null)
+
+                try
                 {
-                     customer = _customerService.GetCustomerByCivilId(CustomerId, CustomerIdType);
+                    customer = _customerService.GetCustomerByCivilId(CustomerId, CustomerIdType);
                 }
-                else
+                catch (Exception ex)
                 {
                     int id = int.Parse(CustomerId);
                     customer = _customerService.GetCustomerByCustomerId(id);
                 }
+
 
                 return Ok(customer);
             }

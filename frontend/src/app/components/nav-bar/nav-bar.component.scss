@@ -22,6 +22,7 @@ nav {
     flex-grow: 1;
     height: 100%;
     display: flex;
+    gap: 10px;
 
     li {
       display: flex;
@@ -30,10 +31,21 @@ nav {
       padding: 5px;
       transition: 0.15s ease-in-out;
       align-items: center;
+      box-sizing: border-box;
+      border-bottom: 3px solid transparent;
+      margin-bottom: 0px;
     }
     li:hover {
+      border-bottom-color: black;
+    }
+    .active {
       color: black;
       background-color: white;
+      border-bottom-color: transparent;
+    }
+    .active:hover {
+      background-color: lightgray;
+      border-bottom-color: transparent;
     }
   }
 

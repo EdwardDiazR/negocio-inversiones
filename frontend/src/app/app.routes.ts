@@ -8,9 +8,17 @@ import { InformationPageComponent } from './pages/customer/information-page/info
 import { CustomerRequestPageComponent } from './pages/customer/customer-request-page/customer-request-page.component';
 import { CreateLoanRequestFormComponent } from './components/loan-request/create-loan-request-form/create-loan-request-form.component';
 import { LoanRequestTableComponent } from './components/loan-request/loan-request-table/loan-request-table.component';
+import { LoanMainPageComponent } from './pages/loan/loan-main-page/loan-main-page.component';
+import { CreateLoanFormComponent } from './components/loan/create-loan-form/create-loan-form.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'customer/search', pathMatch: 'full' },
+  {
+    path: 'loan',
+    component: LoanMainPageComponent,
+    children: [],
+  },
+  { path: 'loan/create', component: CreateLoanFormComponent },
   { path: 'customer/search', component: CustomerSearchPageComponent },
   { path: 'customer/crear-perfil', component: CreateCustomerPageComponent },
   {
@@ -28,10 +36,8 @@ export const routes: Routes = [
         path: 'solicitudes',
         component: CustomerRequestPageComponent,
         children: [
-
-          {path:'',redirectTo:'resumen',pathMatch:'full'},
+          { path: '', redirectTo: 'resumen', pathMatch: 'full' },
           {
-            
             path: 'resumen',
             component: LoanRequestTableComponent,
             pathMatch: 'full',

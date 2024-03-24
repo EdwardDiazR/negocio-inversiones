@@ -26,6 +26,8 @@
   gap: 10px;
   height: clamp(30px, 40px, 45px);
 
+
+
   li {
     animation-timeline: view();
     display: flex;
@@ -39,10 +41,26 @@
     cursor: pointer;
     transition: 0.1s ease-in-out;
     height: 100%;
+    border: 1.5px solid transparent;
+    box-sizing: border-box;
   }
 
   li:hover {
     transform: scale(1.03);
     background-color: #ff5b00;
+  }
+
+  .active {
+   box-sizing: border-box;
+    background-color: white;
+    color: black;
+    border-color: #ff5b00;
+   
+  }
+  .active:hover {
+    color: black;
+    background-color: white;
+    // background-color: lightgray;
+    // border-bottom-color: transparent;
   }
 }

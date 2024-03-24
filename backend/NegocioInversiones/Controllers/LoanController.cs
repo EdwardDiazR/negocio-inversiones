@@ -14,6 +14,8 @@ namespace NegocioInversiones.Controllers
         public LoanController(ILoanService loanService)
         { _loanService = loanService; }
 
+        [HttpPost]
+        [Route("create-loan")]
         public ActionResult CreateLoan(CreateLoanDto createLoanDto)
         {
             try

@@ -1,0 +1,160 @@
+:host {
+  --BlueButton: #0b60b0;
+  --OrangeBg: #ff5b00;
+}
+.hide {
+  display: none;
+}
+
+.show {
+  display: flex;
+  visibility: visible;
+}
+.validator-box {
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.392);
+
+  .validator-modal__container {
+    flex-grow: 1;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    box-sizing: border-box;
+    background-color: lightgray;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.448);
+
+    header {
+      background-color: var(--OrangeBg);
+      color: white;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      box-sizing: border-box;
+      padding: 5px;
+      height: 40px;
+      span {
+        display: flex;
+        flex-grow: 1;
+        justify-content: center;
+        align-items: center;
+      }
+
+      button {
+        padding: 0;
+        box-sizing: border-box;
+        background: transparent;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-height: 100%;
+      }
+    }
+
+    .content {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      gap: 10px;
+    }
+
+    button {
+      border: 1px solid transparent;
+      background-color: var(--BlueButton);
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.15s ease-in-out;
+    }
+    button:hover {
+      background-color: whitesmoke;
+      color: black;
+      border-color: var(--BlueButton);
+    }
+    .form-control {
+      display: flex;
+      flex-direction: column;
+
+      input {
+        width: 100%;
+      }
+      select {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.loan-form{
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+.customer-section {
+  background-color: rgb(220, 220, 220);
+  box-sizing: border-box;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 2px;
+  .form-control{
+    input{
+      border: none;
+    }
+  }
+ 
+  h3 {
+    margin: 0;
+  }
+}
+.form-control {
+  display: flex;
+  flex-direction: column;
+  input {
+    box-sizing: border-box;
+    width: fit-content;
+    border-radius: 2px;
+    border: 1px solid gray;
+    background-color: white;
+    padding: 2px;
+  }
+  select {
+    width: fit-content;
+  }
+}
+
+.create-loan__btn{
+
+  border: 1px solid transparent;
+  background-color: #ff5b00;
+  border-radius: 5px;
+  height: 30px;
+  align-self: center;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}

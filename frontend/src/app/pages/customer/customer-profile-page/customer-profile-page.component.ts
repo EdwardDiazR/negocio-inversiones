@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../../../services/customer/customer.service';
 import { Customer } from '../../../Models/customer';
-import { ActivatedRoute, Route, RouterLink, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Route, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { LoadingSpinnerComponent } from '../../../components/shared/loading-spinner/loading-spinner.component';
 import { timeInterval } from 'rxjs';
 
 @Component({
   selector: 'app-customer-profile-page',
   standalone: true,
-  imports: [RouterOutlet,RouterLink,LoadingSpinnerComponent],
+  imports: [RouterOutlet,RouterLink,RouterLinkActive,LoadingSpinnerComponent],
   templateUrl: './customer-profile-page.component.html',
   styleUrl: './customer-profile-page.component.scss',
 })

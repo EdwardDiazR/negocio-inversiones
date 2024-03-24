@@ -16,10 +16,10 @@ namespace NegocioInversiones.Services
             _context = context;
         }
 
-        public bool CheckIfCustomerExists(int CustomerId)
+        public bool CheckIfCustomerExists(string CustomerId)
         {
             return _context.Customer.AsNoTracking()
-                .Any(c => c.Id == CustomerId 
+                .Any(c => c.CivilId == CustomerId 
                 );
         }
 
@@ -30,7 +30,7 @@ namespace NegocioInversiones.Services
             Customer customer = _context.Customer.AsNoTracking()
                 //.Select(c=>new Customer { CivilId = c.CivilId,
                 //    CustomerCivilIdType=c.CustomerCivilIdType})
-                .Where(customer => customer.CivilId == CustomerId && customer.CustomerCivilIdType == CustomerIdType).First();
+                .Where(customer => customer.CivilId == CustomerId && customer.CustomerCivilIdType == CustomerIdType || customer.CivilId == CustomerId).First();
 
 
             if (customer is null)

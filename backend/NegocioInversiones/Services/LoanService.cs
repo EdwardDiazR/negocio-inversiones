@@ -37,15 +37,18 @@ namespace NegocioInversiones.Services
                 //TODO: Create a 'Product Catalog in db' then, check if product type ID exists in that database
                 //It helps to not add a product typa that doesn't exists in our database
 
+                Customer customer = _db.Customer.First(c=> c.CivilId == loanDto.BeneficiaryCustomerId);
 
                 CustomerProduct product = new CustomerProduct()
                 {
                     ProductType = 1,
-                    CustomerId = loanDto.BeneficiaryCustomerId
+                    CustomerId = customer.Id
                 };
 
                 _db.CustomerProduct.Add(product);
                 _db.SaveChanges();
+
+                double interestBalance = loanDto.Amount * (loanDto.Interest / 100);
 
                 Loan loan = new Loan()
                 {
@@ -57,10 +60,10 @@ namespace NegocioInversiones.Services
                     CapitalBalance = loanDto.Amount,
                     CoSignerId = loanDto.CoSignerId,
                     Interest = loanDto.Interest,
-                    InterestBalance = 0,
+                    InterestBalance = interestBalance,
                     GuaranteeTypeId = loanDto.GuaranteeTypeId,
                     MontoMora = 0,
-                    MontoCuota = 0,
+                    MontoCuota = (loanDto.Amount + loanDto.Interest) / loanDto.PlazoEnMeses,
                     LoanStatusId = 1,
                     PlazoEnMeses = loanDto.PlazoEnMeses,
                     MesesTasaFija = loanDto.MesesTasaFija,
