@@ -1,60 +1,9 @@
 <section class="search-container">
-  <div class="search-box">
-    <div class="header">
-      <span>Buscar cliente</span>
-    </div>
-    <!-- <video width="500px" height="400px"
-    autoplay>
-      <source type="video/mp4" src="https://www.youtube.com/watch?v=ciJt2jXWRKo" />
-    </video> -->
-
-    <form [formGroup]="customerInfo" (submit)="searchCustomerById()">
-      <div class="form-control">
-        <label for="">Tipo de documento</label>
-        <select formControlName="CustomerIdType">
-          <option [defaultSelected]="true" disabled>
-            SELECCIONE TIPO DE DOCUMENTO
-          </option>
-          <option value="1">CEDULA</option>
-          <option value="2">PASAPORTE</option>
-          <option value="3">RNC</option>
-        </select>
-      </div>
-
-      <div class="form-control">
-        <label for="">No. Documento</label>
-
-        <input
-          type="text"
-          placeholder="ID del cliente"
-          formControlName="CustomerId"
-        />
-      </div>
-
-      <button type="submit" [disabled]="loadingCustomerInfo">Buscar</button>
-    </form>
-    <div class="search-result">
-      @if(isSubmitted && CustomerProfile){
-      <a [routerLink]="['/customer', this.CustomerProfile.id, 'profile']">{{
-        CustomerProfile.firstName + " " + CustomerProfile.lastName
-      }}</a>
-
-      }@else if(!isSubmitted && !CustomerProfile && !loadingCustomerInfo){
-      <span
-        style="
-          font-size: 0.9rem;
-          color: black;
-          font-weight: bold;
-          font-style: oblique;
-        "
-        >Consulta el perfil del cliente con su ID</span
-      >
-      }@else if(isSubmitted && loadingCustomerInfo){
-      <!-- <app-loading-spinner></app-loading-spinner> -->
-      } @else if(isSubmitted && !CustomerProfile && ApiResponseMessage ){
-      <span>{{ ApiResponseMessage }}</span>
-
-      }
-    </div>
-  </div>
+  <app-identity-validator
+    [canCloseModal]="false"
+    (customerData)="validate($event.value)"
+    [isLoading]="loadingCustomerInfo"
+    [isSubmitted]="isSubmitted"
+    [ApiResponseMessage]="ApiResponseMessage"
+  ></app-identity-validator>
 </section>

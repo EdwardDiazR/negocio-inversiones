@@ -114,12 +114,13 @@
   display: flex;
   flex-direction: column;
   padding: 5px;
+  gap: 10px;
 }
 .customer-section {
   background-color: rgb(220, 220, 220);
   box-sizing: border-box;
   padding: 5px;
-  margin: 5px;
+  
   border-radius: 2px;
   .form-control{
     input{

@@ -11,11 +11,19 @@ import { CreateLoanDto } from '../../../Models/loan';
 import { Customer } from '../../../Models/customer';
 import { CustomerService } from '../../../services/customer/customer.service';
 import { LoanService } from '../../../services/loan/loan.service';
+import { DividerComponent } from '../../shared/divider/divider.component';
+import { IdentityValidatorComponent } from '../../shared/identity-validator/identity-validator.component';
 
 @Component({
   selector: 'app-create-loan-form',
   standalone: true,
-  imports: [NgClass, ReactiveFormsModule, FormsModule],
+  imports: [
+    NgClass,
+    ReactiveFormsModule,
+    FormsModule,
+    DividerComponent,
+    IdentityValidatorComponent,
+  ],
   templateUrl: './create-loan-form.component.html',
   styleUrl: './create-loan-form.component.scss',
 })
@@ -28,6 +36,9 @@ export class CreateLoanFormComponent implements OnInit {
   showValidator: boolean = true;
   createLoanForm!: FormGroup;
   loan!: CreateLoanDto;
+  isLoadingCustomerInfo!:boolean
+  apiError!:string
+  isSubmitted:boolean = false;
 
   customerQueryForm = new FormGroup({
     customerCivilId: new FormControl(null, [
@@ -38,21 +49,34 @@ export class CreateLoanFormComponent implements OnInit {
   });
   customer!: Customer;
 
-  getCustomerInformation() {
-    if (this.customerQueryForm.valid) {
-      let id = this.customerQueryForm.value.customerCivilId || '';
-      let idType = this.customerQueryForm.value.customerCivilIdType || 0;
+  validateCustomer(info: any) {
+    (this.customerQueryForm.value.customerCivilId = info.CustomerId),
+      (this.customerQueryForm.value.customerCivilIdType = info.CustomerIdType);
 
-      // id = "4020894456"
-      // idType = 1
-      this._customerService.getCustomerByCivilId(id, idType).subscribe({
-        next: (res) => {
-          this.customer = res;
-          this.showValidator = false;
-        },
-      });
+    if (info.CustomerId && info.CustomerIdType) {
+      this.getCustomerInformation();
     }
   }
+
+  getCustomerInformation() {
+
+    this.isLoadingCustomerInfo = true;
+    this.isSubmitted = true
+    let id = this.customerQueryForm.value.customerCivilId || '';
+    let idType = this.customerQueryForm.value.customerCivilIdType || 0;
+
+    // id = "4020894456"
+    // idType = 1
+    this._customerService.getCustomerByCivilId(id, idType).subscribe({
+      next: (res) => {
+        this.customer = res;
+        this.showValidator = false;
+      
+      },error:(e)=>{this.apiError=e.error}
+    });
+    this.isLoadingCustomerInfo=false
+  }
+
   ngOnInit(): void {
     this.createLoanForm = new FormGroup({
       BeneficiaryCustomerId: new FormControl(null, [Validators.required]),

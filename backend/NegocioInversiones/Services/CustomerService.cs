@@ -27,6 +27,7 @@ namespace NegocioInversiones.Services
         //Method: search customer by it's civil ID
         public Customer GetCustomerByCivilId(string CustomerId, int? CustomerIdType)
         {
+
             Customer customer = _context.Customer.AsNoTracking()
                 //.Select(c=>new Customer { CivilId = c.CivilId,
                 //    CustomerCivilIdType=c.CustomerCivilIdType})

@@ -1,5 +1,30 @@
-section {
+.big-loading {
   min-height: 80vh;
+
+  .spinner-container {
+    height: 40px;
+    width: 40px;
+  }
+  .message {
+    display: block;
+  }
+}
+
+.small-loading {
+  .spinner-container {
+    height: 15px;
+    width: 15px;
+    border-width: 4px;
+    border-top-width: 4px;
+  }
+  .message {
+    display: none;
+  }
+}
+
+section {
+  height: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,8 +43,9 @@ section {
   border: 6px solid #f3f3f3;
   border-radius: 50%;
   border-top: 6px solid orange;
-  width: 40px;
-  height: 40px;
+  width: fit-content;
+  height: fit-content;
+
   -webkit-animation: spin 1.5s linear infinite; /* Safari */
   animation: spin 1s linear infinite;
 }

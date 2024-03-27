@@ -1,5 +1,5 @@
 @if(isLoadingProfile){
-  <app-loading-spinner></app-loading-spinner>
+  <app-loading-spinner [class]="'big-loading'" [message]="'Cargando informacion del cliente'"></app-loading-spinner>
 }
 
 @if(customerProfile && isLoadingProfile==false){
